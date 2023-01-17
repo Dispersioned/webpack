@@ -37,6 +37,7 @@ module.exports = {
     compress: true,
     hot: isDev,
   },
+  devtool: isDev ? 'eval-source-map' : 'source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
@@ -87,6 +88,11 @@ module.exports = {
             presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }]],
           },
         },
+      },
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
       },
     ],
   },
