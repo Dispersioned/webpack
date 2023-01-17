@@ -23,7 +23,7 @@ function filename(ext) {
 }
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: filename('js'),
@@ -36,10 +36,13 @@ module.exports = {
     open: true,
     compress: true,
     hot: isDev,
+    client: {
+      logging: 'error',
+    },
   },
   devtool: isDev ? 'eval-source-map' : 'source-map',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -51,6 +54,7 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'public/assets'),
           to: path.resolve(__dirname, 'dist'),
+          noErrorOnMissing: true,
         },
       ],
     }),
@@ -69,25 +73,30 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif|ttf|woff|woff2|eot)$/i,
         type: 'asset/resource',
       },
+      // {
+      //   test: /\.js$/i,
+      //   exclude: '/node_modules/',
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env'],
+      //     },
+      //   },
+      // },
+      // {
+      //   test: /\.jsx$/i,
+      //   exclude: '/node_modules/',
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }]],
+      //     },
+      //   },
+      // },
       {
-        test: /\.js$/i,
-        exclude: '/node_modules/',
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.jsx$/i,
-        exclude: '/node_modules/',
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }]],
-          },
-        },
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.(js|jsx)$/,
