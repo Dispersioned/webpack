@@ -18,11 +18,15 @@ function optimization() {
   return {};
 }
 
+function filename(ext) {
+  return isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
+}
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    filename: filename('js'),
     publicPath: '/',
     clean: true,
   },
@@ -49,7 +53,9 @@ module.exports = {
         },
       ],
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: filename('css'),
+    }),
   ],
   optimization: optimization(),
   module: {
