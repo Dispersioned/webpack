@@ -73,26 +73,6 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif|ttf|woff|woff2|eot)$/i,
         type: 'asset/resource',
       },
-      // {
-      //   test: /\.js$/i,
-      //   exclude: '/node_modules/',
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ['@babel/preset-env'],
-      //     },
-      //   },
-      // },
-      // {
-      //   test: /\.jsx$/i,
-      //   exclude: '/node_modules/',
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }]],
-      //     },
-      //   },
-      // },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
