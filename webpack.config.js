@@ -4,16 +4,18 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
 function optimization() {
-  if (isProd)
+  if (isProd) {
     return {
       minimize: true,
       minimizer: [new TerserWebpackPlugin(), new CssMinimizerPlugin()],
     };
+  }
 
   return {};
 }
@@ -38,6 +40,9 @@ module.exports = {
     hot: isDev,
     client: {
       logging: 'error',
+      overlay: {
+        warnings: false,
+      },
     },
   },
   devtool: isDev ? 'eval-source-map' : 'source-map',
@@ -60,6 +65,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: filename('css'),
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
   ],
   optimization: optimization(),

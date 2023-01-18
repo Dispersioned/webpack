@@ -15,6 +15,7 @@ export function App() {
       </p>
       <img
         src={Img}
+        alt=""
         style={{
           width: 300,
           height: 300,
