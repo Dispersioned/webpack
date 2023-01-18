@@ -47,6 +47,7 @@ module.exports = {
   },
   devtool: isDev ? 'eval-source-map' : 'source-map',
   resolve: {
+    modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [
