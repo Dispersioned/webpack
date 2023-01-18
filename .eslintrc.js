@@ -7,10 +7,10 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
     // Resolve for eslint rules
-    'plugin:react/jsx-runtime',
+    'plugin:@typescript-eslint/recommended',
     // React 17^ doesn't require this
+    'plugin:react/jsx-runtime',
     'plugin:prettier/recommended',
     // Equal to
     // {
