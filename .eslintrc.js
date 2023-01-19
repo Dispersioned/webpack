@@ -28,10 +28,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
+    //? seems unnecessary
     // ecmaFeatures: {
     //   jsx: true,
     // },
   },
+  //? is it needed for clean webpack?
   // settings: {
   //   'import/resolver': {
   //     node: {
@@ -46,6 +48,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
 
   rules: {
+    //? Probe for needed configs during development
     // General
     // camelcase: 'error',
     // 'spaced-comment': 'error',
