@@ -44,6 +44,7 @@ module.exports = {
         warnings: false,
       },
     },
+    historyApiFallback: true,
   },
   devtool: isDev ? 'eval-source-map' : 'source-map',
   resolve: {
