@@ -71,8 +71,8 @@ module.exports = {
     // 'no-use-before-define': 'off',
     // '@typescript-eslint/no-use-before-define': ['error'],
     // use ts instead prop-types
-    // 'react/require-default-props': 'off',
-    // 'react/no-unused-prop-types': 'warn',
+    'react/require-default-props': 'off',
+    'react/no-unused-prop-types': 'warn',
 
     // Consistent rename friendly exports
     'import/prefer-default-export': 'off',
