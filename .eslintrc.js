@@ -31,17 +31,6 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  //? is it needed for clean webpack?
-  // settings: {
-  //   'import/resolver': {
-  //     node: {
-  //       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  //     },
-  //     typescript: {
-  //       alwaysTryTypes: true,
-  //     },
-  //   },
-  // },
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint'],
 
@@ -72,7 +61,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/no-unused-prop-types': 'warn',
 
-    // Consistent rename friendly exports
+    // Consistent rename-friendly exports
     'import/prefer-default-export': 'off',
     'import/no-default-export': 'error',
     // Breaks some features on Next.js & MUI
