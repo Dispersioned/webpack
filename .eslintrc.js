@@ -9,7 +9,9 @@ module.exports = {
     'plugin:react/recommended',
     // Resolve for eslint rules
     'plugin:@typescript-eslint/recommended',
-    // React 17^ doesn't require this
+    // React 17^ uses new jsx transformer
+    // we disable recommended eslint rule by
+    // extending this plugin
     'plugin:react/jsx-runtime',
     'plugin:prettier/recommended',
     // Equal to
@@ -28,10 +30,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
-    //? seems unnecessary
-    // ecmaFeatures: {
-    //   jsx: true,
-    // },
   },
   //? is it needed for clean webpack?
   // settings: {
