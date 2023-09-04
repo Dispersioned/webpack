@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "./build",
     "baseUrl": "./src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -17,5 +17,11 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "sourceMap": true
+  },
+  "exclude": ["config"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   }
 }
