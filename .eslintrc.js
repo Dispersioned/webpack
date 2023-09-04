@@ -25,18 +25,16 @@ module.exports = {
     //   }
     // }
   ],
-  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint'],
 
   rules: {
     //? Probe for needed configs during development
-    // General
+    //? General
     // camelcase: 'error',
     // 'spaced-comment': 'error',
     // quotes: ['error', 'single'],
@@ -50,24 +48,30 @@ module.exports = {
     'no-unused-vars': 'warn',
     'react/jsx-props-no-spreading': 'warn',
 
-    // Breaks custom wrappers for UIKits (<CustomBtn ...props />)
+    //? Breaks custom wrappers for UIKits (<CustomBtn ...props />)
     // 'prefer-destructuring': 'warn',
-    // Works bad with VS Code auto wrapping
-    // 'max-len': 'off',
-    // Disable errors in React components
+    'max-len': [
+      'error',
+      {
+        ignoreComments: true,
+        code: 120,
+      },
+    ],
+    //? Disable errors in React components
     // 'no-use-before-define': 'off',
     // '@typescript-eslint/no-use-before-define': ['error'],
-    // use ts instead prop-types
+    //? use ts instead prop-types
     'react/require-default-props': 'off',
     'react/no-unused-prop-types': 'warn',
 
-    // Consistent rename-friendly exports
+    //? Consistent rename-friendly exports
     'import/prefer-default-export': 'off',
     'import/no-default-export': 'error',
-    // Breaks some features on Next.js & MUI
-    // Sometimes works bad with prettier printWidth
+    //? Breaks some features on Next.js & MUI
+    //? Sometimes works bad with prettier printWidth
     // 'implicit-arrow-linebreak': 'off',
     // 'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    //? seems like this is needed only on original CRA for overrideing
     // 'import/extensions': [
     // 'error',
     // 'ignorePackages',
@@ -84,7 +88,6 @@ module.exports = {
   //   {
   //     // feel free to replace with your preferred file pattern - eg. 'src/**/*Slice.ts'
   //     files: ['src/**/*Slice.ts'],
-  //     // avoid state param assignment
   //     rules: { 'no-param-reassign': ['error', { props: false }] },
   //   },
   // ],
